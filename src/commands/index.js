@@ -19,7 +19,7 @@ const transformHtml2Pug = async () => {
         nspaces: 2,
         double: true,
         bodyless: true,
-        fragment: false,
+        fragment: true,
         noattrcomma: true,
         donotencode: true,
         noemptypipe: true
