@@ -1,6 +1,6 @@
 {
   "name": "vscode-vue-pug-enhanced",
-  "displayName": "vscode-vue-pug-enhanced",
+  "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
   "version": "1.0.0",
@@ -52,7 +52,13 @@
         "command": "extension.transformPug2Html",
         "title": "Pug to Html"
       }
-    ]
+    ],
+		"snippets": [
+			{
+				"language": "jade",
+				"path": "./src/snippets/pug.json"
+			}
+		]
   },
   "scripts": {
     "push": "git push origin master && git push coding master",
