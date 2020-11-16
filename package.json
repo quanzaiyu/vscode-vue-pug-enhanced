@@ -3,7 +3,7 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
@@ -11,6 +11,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/quanzaiyu/vscode-vue-pug-enhanced.git"
+  },
+  "bugs": {
+    "url": "https://github.com/quanzaiyu/vscode-vue-pug-enhanced/issues"
   },
   "tags": [
     "vscode",
@@ -38,6 +41,8 @@
     "Other"
   ],
   "activationEvents": [
+    "onLanguage:pug",
+    "onCommand:extension.formatPug",
     "onCommand:extension.transformHtml2Pug",
     "onCommand:extension.transformPug2Html"
   ],
@@ -45,12 +50,24 @@
   "contributes": {
     "commands": [
       {
+        "command": "extension.formatPug",
+        "title": "Format Pug",
+        "category": "Vue Pug Enhanced"
+      },
+      {
+        "command": "extension.formatPugSelected",
+        "title": "Format Pug Selected",
+        "category": "Vue Pug Enhanced"
+      },
+      {
         "command": "extension.transformHtml2Pug",
-        "title": "Html to Pug"
+        "title": "Html to Pug",
+        "category": "Vue Pug Enhanced"
       },
       {
         "command": "extension.transformPug2Html",
-        "title": "Pug to Html"
+        "title": "Pug to Html",
+        "category": "Vue Pug Enhanced"
       }
     ],
     "snippets": [
@@ -58,7 +75,31 @@
         "language": "jade",
         "path": "./src/snippets/pug.json"
       }
-    ]
+    ],
+    "configuration": {
+			"type": "object",
+			"title": "Pug",
+			"properties": {
+        "vue-pug-enhanced.formatter-pug.fillTab": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "default": false,
+          "description": "Indent with Tabs, if false, with spaces."
+        },
+        "vue-pug-enhanced.formatter-pug.omitDiv": {
+          "type": "boolean",
+          "default": false,
+          "description": "Omit div tag when it has id or class."
+        },
+        "vue-pug-enhanced.formatter-pug.tabSize": {
+          "type": "number",
+          "default": 2,
+          "description": "When `fillTab` is false, fill `tabSize` spaces."
+        }
+			}
+		}
   },
   "scripts": {
     "push": "git push origin master && git push coding master",
@@ -82,6 +123,7 @@
   },
   "dependencies": {
     "html2jade": "^0.8.6",
-    "pug": "^3.0.0"
+    "pug": "^3.0.0",
+    "pug-beautify": "^0.1.1"
   }
 }

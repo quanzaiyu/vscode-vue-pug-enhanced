@@ -1152,6 +1152,11 @@ pug-attrs@^3.0.0:
     js-stringify "^1.0.2"
     pug-runtime "^3.0.0"
 
+pug-beautify@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npm.taobao.org/pug-beautify/download/pug-beautify-0.1.1.tgz#df7fbc70ee80c18a6422dffab2fe508188cdcc18"
+  integrity sha1-33+8cO6AwYpkIt/6sv5QgYjNzBg=
+
 pug-code-gen@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/pug-code-gen/download/pug-code-gen-3.0.1.tgz#ff3b337b100c494ea63ef766091d27f7d73acb7e"
