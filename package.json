@@ -3,15 +3,15 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.0.0",
-	"icon": "images/icon.png",
+  "version": "1.0.1",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/quanzaiyu/vscode-vue-pug-enhanced.git"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quanzaiyu/vscode-vue-pug-enhanced.git"
+  },
   "tags": [
     "vscode",
     "jade",
@@ -53,12 +53,12 @@
         "title": "Pug to Html"
       }
     ],
-		"snippets": [
-			{
-				"language": "jade",
-				"path": "./src/snippets/pug.json"
-			}
-		]
+    "snippets": [
+      {
+        "language": "jade",
+        "path": "./src/snippets/pug.json"
+      }
+    ]
   },
   "scripts": {
     "push": "git push origin master && git push coding master",

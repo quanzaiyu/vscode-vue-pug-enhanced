@@ -3,3 +3,4 @@ node_modules
 *.vsix
 _refs/
 test/
+yarn-error.log
