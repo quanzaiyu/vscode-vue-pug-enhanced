@@ -64,6 +64,7 @@
     "push": "git push origin master && git push coding master",
     "build": "vsce package -o vscode-vue-pug-enhanced.vsix",
     "ext": "yarn build && code --install-extension vscode-vue-pug-enhanced.vsix",
+    "publish": "vsce publish",
     "lint": "eslint .",
     "pretest": "yarn run lint",
     "test": "node ./test/runTest.js"
