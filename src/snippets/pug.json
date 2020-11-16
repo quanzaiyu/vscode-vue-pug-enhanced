@@ -48,28 +48,28 @@
   "v-show": {
     "prefix": "v-show",
     "body": [
-      "v-show=\"${1:condition}\" :key=\"${2:key}\""
+      "v-show=\"${1:condition}\""
     ],
     "description": "v-show inline statement"
   },
   "v-if": {
     "prefix": "v-if",
     "body": [
-      "v-if=\"${1:condition}\" :key=\"${2:key}\""
+      "v-if=\"${1:condition}\""
     ],
     "description": "v-if inline statement"
   },
   "v-else-if": {
     "prefix": "v-else-if",
     "body": [
-      "v-else-if=\"${1:condition}\" :key=\"${2:key}\""
+      "v-else-if=\"${1:condition}\""
     ],
     "description": "v-else-if inline statement"
   },
   "v-else": {
     "prefix": "v-else",
     "body": [
-      "v-else=\"${1:condition}\" :key=\"${2:key}\""
+      "v-else=\"${1:condition}\""
     ],
     "description": "v-else inline statement"
   },
