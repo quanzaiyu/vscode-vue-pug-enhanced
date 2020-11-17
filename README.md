@@ -2,7 +2,7 @@
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-<div style="display:flex;justify-content:center;align-items:center;">
+<div align="center">
 <img src="./images/icon.png" width='200'/>
 </div>
 
