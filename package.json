@@ -3,7 +3,7 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
@@ -80,18 +80,15 @@
 			"type": "object",
 			"title": "Pug",
 			"properties": {
-        "vue-pug-enhanced.formatter-pug.fillTab": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "default": false,
-          "description": "Indent with Tabs, if false, with spaces."
-        },
         "vue-pug-enhanced.formatter-pug.omitDiv": {
           "type": "boolean",
           "default": false,
           "description": "Omit div tag when it has id or class."
+        },
+        "vue-pug-enhanced.formatter-pug.fillTab": {
+          "type": "boolean",
+          "default": false,
+          "description": "Indent with Tabs, if false, with spaces."
         },
         "vue-pug-enhanced.formatter-pug.tabSize": {
           "type": "number",
@@ -102,7 +99,7 @@
 		}
   },
   "scripts": {
-    "push": "git push origin master && git push coding master",
+    "push": "node push.js",
     "build": "vsce package -o vscode-vue-pug-enhanced.vsix",
     "ext": "yarn build && code --install-extension vscode-vue-pug-enhanced.vsix",
     "publish": "vsce publish",

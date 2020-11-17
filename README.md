@@ -25,7 +25,9 @@
 2. Press `F1` or `Ctrl + Shift + P`.
 3. Run the command named `Html to Pug` or `Pug to Html` to transform.
 
-![](./doc/images/001.gif)
+![Html to Pug](./doc/images/011.gif)
+
+![Pug to Html](./doc/images/012.gif)
 
 **commands**:
 
@@ -70,7 +72,7 @@ In vue file:
 
 > v-if
 
-![](./doc/images/003.gif)
+![](./doc/images/013.gif)
 
 > Create Elements
 
@@ -83,6 +85,32 @@ In vue file:
 > Events
 
 ![](./doc/images/006.gif)
+
+## Supported settings
+
+### vue-pug-enhanced.formatter-pug.fillTab
+
+```
+Type: Boolean
+Default: false
+Description: Indent with Tabs, if false, with spaces.
+```
+
+### vue-pug-enhanced.formatter-pug.tabSize
+
+```
+Type: Number
+Default: 2
+When fillTab is false, fill tabSize spaces.
+```
+
+### vue-pug-enhanced.formatter-pug.omitDiv
+
+```
+Type: Boolean
+Default: false
+Description: Omit div tag when it has id or class.
+```
 
 ## Release Notes
 
@@ -97,6 +125,10 @@ In vue file:
 
 - Add command: Format Pug
 - Add command: Format Pug Selected
+
+### 1.0.3
+
+- Expose some settings
 
 ## Based On
 
