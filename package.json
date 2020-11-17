@@ -3,7 +3,7 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
@@ -72,6 +72,10 @@
     ],
     "snippets": [
       {
+        "language": "pug",
+        "path": "./src/snippets/pug.json"
+      },
+      {
         "language": "jade",
         "path": "./src/snippets/pug.json"
       }
@@ -80,20 +84,30 @@
 			"type": "object",
 			"title": "Pug",
 			"properties": {
-        "vue-pug-enhanced.formatter-pug.omitDiv": {
+        "vue-pug-enhanced.omitDiv": {
           "type": "boolean",
           "default": false,
           "description": "Omit div tag when it has id or class."
         },
-        "vue-pug-enhanced.formatter-pug.fillTab": {
+        "vue-pug-enhanced.useTab": {
           "type": "boolean",
           "default": false,
           "description": "Indent with Tabs, if false, with spaces."
         },
-        "vue-pug-enhanced.formatter-pug.tabSize": {
+        "vue-pug-enhanced.tabSize": {
           "type": "number",
           "default": 2,
-          "description": "When `fillTab` is false, fill `tabSize` spaces."
+          "description": "The number of spaces to indent generated files with. Default is 2 spaces. When `fillTab` is false, fill `tabSize` spaces."
+        },
+        "vue-pug-enhanced.doubleQuotes": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use double quotes for attributes."
+        },
+        "vue-pug-enhanced.omitCommas": {
+          "type": "boolean",
+          "default": true,
+          "description": "Omit attribute separating commas."
         }
 			}
 		}

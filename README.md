@@ -88,7 +88,7 @@ In vue file:
 
 ## Supported settings
 
-### vue-pug-enhanced.formatter-pug.fillTab
+### vue-pug-enhanced.useTab
 
 ```
 Type: Boolean
@@ -96,20 +96,36 @@ Default: false
 Description: Indent with Tabs, if false, with spaces.
 ```
 
-### vue-pug-enhanced.formatter-pug.tabSize
+### vue-pug-enhanced.tabSize
 
 ```
 Type: Number
 Default: 2
-When fillTab is false, fill tabSize spaces.
+Description: The number of spaces to indent generated files with. Default is 2 spaces. When `fillTab` is false, fill `tabSize` spaces.
 ```
 
-### vue-pug-enhanced.formatter-pug.omitDiv
+### vue-pug-enhanced.doubleQuotes
+
+```
+Type: Boolean
+Default: true
+Description: Use double quotes for attributes.
+```
+
+### vue-pug-enhanced.omitDiv
 
 ```
 Type: Boolean
 Default: false
 Description: Omit div tag when it has id or class.
+```
+
+### vue-pug-enhanced.omitCommas
+
+```
+Type: Boolean
+Default: true
+Description: Omit attribute separating commas.
 ```
 
 ## Release Notes

@@ -13,15 +13,17 @@ const transformHtml2Pug = async () => {
     const htmlCode = editor.document.getText(selection);
     if (!htmlCode) return null
 
+    let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced')
+
     return new Promise((resolve, reject) => {
       // @ts-ignore
       html2jade.convertHtml(htmlCode, {
-        tabs: false,
-        nspaces: 2,
-        double: true,
+        tabs: editorConfig.useTab || !editor.options.insertSpaces,
+        nspaces: editorConfig.tabSize || editor.options.tabSize,
+        double: editorConfig.doubleQuotes,
         bodyless: true,
         fragment: true,
-        noattrcomma: true,
+        noattrcomma: editorConfig.omitCommas,
         donotencode: true,
         noemptypipe: true
       }, (err, jade) => {
@@ -75,10 +77,10 @@ const formatPug = async () => {
 
   let text = document.getText()
 
-  let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced.formatter-pug')
+  let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced')
   let options = {
     omit_div: editorConfig.omitDiv,
-    fill_tab: editorConfig.fillTab || !editor.options.insertSpaces,
+    fill_tab: editorConfig.useTab || !editor.options.insertSpaces,
     tab_size: editorConfig.tabSize || editor.options.tabSize
   }
 
