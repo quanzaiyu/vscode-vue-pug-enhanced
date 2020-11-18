@@ -15,8 +15,7 @@
 
 ## Supported languages
 
-- Pug
-- Jade
+- Pug/Jade
 - Vue
 
 ## Usage
@@ -131,28 +130,6 @@ Type: Boolean
 Default: true
 Description: Omit attribute separating commas.
 ```
-
-## Release Notes
-
-### 1.0.0
-
-- Initial Extension
-- Add command: Html to Pug
-- Add command: Pug to Html
-- Add snippets
-
-### 1.0.2
-
-- Add command: Format Pug
-- Add command: Format Pug Selected
-
-### 1.0.3
-
-- Expose some settings
-
-### 1.1.0
-
-- Autocomplete vue events
 
 ## Known issues
 
