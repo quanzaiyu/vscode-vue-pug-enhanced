@@ -154,6 +154,10 @@ Description: Omit attribute separating commas.
 
 - Autocomplete vue events
 
+## Known issues
+
+- Autocomplete vue events trigger everywhere in pug template
+
 ## Based On
 
 - [vetur](https://github.com/vuejs/vetur)
