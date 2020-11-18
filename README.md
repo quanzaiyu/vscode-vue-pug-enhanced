@@ -10,6 +10,8 @@
 
 - Code snippets for .vue files with pug template.
 - Transform html to pug or pug to html.
+- Format pug document or format pug selection.
+- Autocomplete.
 
 ## Supported languages
 
@@ -64,6 +66,12 @@ In vue file:
 
 ![](./doc/images/010.gif)
 
+### **Autocomplete**
+
+> Vue Events
+
+![](./doc/images/014.gif)
+
 ### **Code Snippets**
 
 > v-for
@@ -81,10 +89,6 @@ In vue file:
 ![](./doc/images/005.gif)
 
 ![](./doc/images/007.gif)
-
-> Events
-
-![](./doc/images/006.gif)
 
 ## Supported settings
 
@@ -145,6 +149,10 @@ Description: Omit attribute separating commas.
 ### 1.0.3
 
 - Expose some settings
+
+### 1.1.0
+
+- Autocomplete vue events
 
 ## Based On
 

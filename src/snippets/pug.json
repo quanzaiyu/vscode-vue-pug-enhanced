@@ -88,15 +88,6 @@
     "description": "v-model inline statement"
   },
 
-  // Vue Event
-  "@": {
-    "prefix": "@",
-    "body": [
-      "@${1|click,dblclick,input,change,hover,focus,blur,mouseenter,mouseleave|}=\"${0}\""
-    ],
-    "description": "events"
-  },
-
   // Prop Attributes
   ":src": {
     "prefix": ":src",
