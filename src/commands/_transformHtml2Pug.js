@@ -31,13 +31,37 @@ const transformHtml2Pug = async () => {
     })
   }))
 
-  editor.edit(builder => {
+  // 替换template标签
+  // <template> => </template><template lang="pug">
+  const text = editor.document.getText()
+  const templateMatch = text.match(/\s*<template.*\s*/)
+
+  if (!templateMatch) return
+
+  const start = editor.document.positionAt(templateMatch.index)
+  const end = editor.document.positionAt(templateMatch.index + templateMatch[0].length)
+
+  let range = new vscode.Range(start, end)
+
+  const replaceStr = `<template lang="pug">\r\n`
+
+  editor.edit(edit => {
+    // 执行替换template标签
+    edit.replace(range, replaceStr)
+
     fragments.forEach((fragment, i) => {
-        if (!fragment) return
-        builder.replace(editor.selections[i], fragment)
-    });
-  });
-};
+      if (!fragment) return
+
+      // 将pug字符串模板中末尾的换行符去掉
+      if (fragment.substr(-1, 1) === '\n') { // \n 为一个字符，而不是两个
+        fragment = fragment.substring(0, fragment.length - 1)
+      }
+
+      // HTML => Pug
+      edit.replace(editor.selections[i], fragment)
+    })
+  })
+}
 
 module.exports = {
   transformHtml2Pug

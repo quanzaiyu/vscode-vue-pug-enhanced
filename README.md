@@ -26,9 +26,13 @@
 2. Press `F1` or `Ctrl + Shift + P`.
 3. Run the command named `Html to Pug` or `Pug to Html` to transform.
 
-![Html to Pug](./doc/images/011.gif)
+> Html to Pug
 
-![Pug to Html](./doc/images/012.gif)
+![](./doc/images/016.gif)
+
+> Pug to Html
+
+![](./doc/images/017.gif)
 
 **commands**:
 
@@ -133,7 +137,7 @@ Description: Omit attribute separating commas.
 
 ## Known issues
 
-- Autocomplete vue events trigger everywhere in pug template
+- None
 
 ## Based On
 

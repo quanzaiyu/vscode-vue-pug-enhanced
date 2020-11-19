@@ -20,10 +20,34 @@ const transformPug2Html = async () => {
     })
   }))
 
-  editor.edit(builder => {
+  // 替换template标签
+  // </template><template lang="pug"> => <template>
+  const text = editor.document.getText()
+  const templateMatch = text.match(/\s*<template.*\s*/)
+
+  if (!templateMatch) return
+
+  const start = editor.document.positionAt(templateMatch.index)
+  const end = editor.document.positionAt(templateMatch.index + templateMatch[0].length)
+
+  let range = new vscode.Range(start, end)
+
+  const replaceStr = `<template>\r\n`
+
+  editor.edit(edit => {
+    // 执行替换template标签
+    edit.replace(range, replaceStr)
+
     fragments.forEach((fragment, i) => {
       if (!fragment || !fragment.length) return
-      builder.replace(editor.selections[i], fragment)
+
+      // 将html字符串模板中起始的换行符去掉
+      if (fragment.substr(0, 1) === '\n') { // \n 为一个字符，而不是两个
+        fragment = fragment.substring(1, fragment.length)
+      }
+
+      // Pug => HTML
+      edit.replace(editor.selections[i], fragment)
     })
   })
 }

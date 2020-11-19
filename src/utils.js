@@ -1,3 +1,5 @@
+const vscode = require('vscode')
+
 /**
 * 是否在pug模板之内
 */
@@ -15,7 +17,6 @@ function isInPugTemplate (document, position) {
   const endLine = document.positionAt(end).line
   return position.line > startLine && position.line < endLine
 }
-
 
 module.exports = {
   isInPugTemplate
