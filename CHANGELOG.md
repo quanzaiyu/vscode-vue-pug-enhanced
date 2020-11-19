@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.5
+
+- Autocomplete vue events with value snippet
+
+![](./doc/images/015.gif)
+
 ## 1.1.0
 
 - Autocomplete vue events

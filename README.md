@@ -69,7 +69,7 @@ In vue file:
 
 > Vue Events
 
-![](./doc/images/014.gif)
+![](./doc/images/015.gif)
 
 ### **Code Snippets**
 
