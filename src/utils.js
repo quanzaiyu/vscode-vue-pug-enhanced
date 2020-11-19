@@ -5,7 +5,7 @@ function isInPugTemplate (document, position) {
   const text = document.getText()
   let tagName = 'template'
   // <template lang="pug"> 的各种变种
-  let reg = new RegExp(`<${tagName}` + '\\s+lang\\s*=\\s*[\"|\']pug[\"|\']\\s*>')
+  let reg = new RegExp(`(<)(${tagName})` + '\\b(?=[^>]*lang=([\"|\'](pug|jade)[\"|\']))(?![^/>]*/>\\s*$)')
   const start = text.search(reg)
   const end = text.lastIndexOf(`</${tagName}>`)
   if (start === -1 || end === -1) {

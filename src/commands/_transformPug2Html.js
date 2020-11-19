@@ -8,9 +8,9 @@ const transformPug2Html = async () => {
   const selections = editor.selections
 
   let fragments = await Promise.all(selections.map(async (selection) => {
-    const htmlCode = editor.document.getText(selection);
+    const htmlCode = editor.document.getText(selection)
     return new Promise((resolve, reject) => {
-      if (!htmlCode || !htmlCode.length) return resolve(null);
+      if (!htmlCode || !htmlCode.length) return resolve(null)
       try {
         resolve(pug.render(htmlCode, {
           pretty: true

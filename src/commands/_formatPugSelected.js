@@ -9,7 +9,7 @@ const formatPugSelected = async () => {
   const selection = editor.selection
   const text = document.getText(selection)
 
-  let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced.formatter-pug');
+  let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced.formatter-pug')
   let options = {
     omit_div: editorConfig.omitDiv,
     fill_tab: editorConfig.fillTab || !editor.options.insertSpaces,
@@ -22,7 +22,7 @@ const formatPugSelected = async () => {
       builder.replace(selection, result)
     })
   } catch (err) {
-    vscode.window.showErrorMessage(err);
+    vscode.window.showErrorMessage(err)
   }
 }
 

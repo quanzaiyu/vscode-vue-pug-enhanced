@@ -33,8 +33,8 @@ const transformHtml2Pug = async () => {
 
   editor.edit(builder => {
     fragments.forEach((fragment, i) => {
-        if (!fragment) return;
-        builder.replace(editor.selections[i], fragment);
+        if (!fragment) return
+        builder.replace(editor.selections[i], fragment)
     });
   });
 };

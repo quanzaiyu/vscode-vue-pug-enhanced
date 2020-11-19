@@ -1,5 +1,5 @@
-const vscode = require('vscode');
-const { isInPugTemplate } = require('../utils');
+const vscode = require('vscode')
+const { isInPugTemplate } = require('../utils')
 
 const eventKeys = [
   "abort",
@@ -79,7 +79,9 @@ const vueEventsCompletion = {
     }
   },
   resolveCompletionItem: (item, token) => {
-    return null;
+    // item.label += "=\"\""
+    console.log(item)
+    return item
   }
 }
 

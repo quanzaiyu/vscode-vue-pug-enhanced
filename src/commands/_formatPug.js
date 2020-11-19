@@ -19,17 +19,17 @@ const formatPug = async () => {
 
   try {
     let result = pugBeautify(text, options) || text
-    let lastLine = document.lineAt(document.lineCount - 1);
-    let start = new vscode.Position(0, 0);
-    let end = new vscode.Position(document.lineCount - 1, lastLine.text.length);
-    let range = new vscode.Range(start, end);
+    let lastLine = document.lineAt(document.lineCount - 1)
+    let start = new vscode.Position(0, 0)
+    let end = new vscode.Position(document.lineCount - 1, lastLine.text.length)
+    let range = new vscode.Range(start, end)
 
-    let edit = new vscode.WorkspaceEdit();
-    edit.replace(document.uri, range, result);
+    let edit = new vscode.WorkspaceEdit()
+    edit.replace(document.uri, range, result)
 
-    vscode.workspace.applyEdit(edit);
+    vscode.workspace.applyEdit(edit)
   } catch (err) {
-    vscode.window.showErrorMessage(err);
+    vscode.window.showErrorMessage(err)
   }
 }
 
