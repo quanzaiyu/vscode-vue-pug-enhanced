@@ -74,7 +74,9 @@ const vueEventsCompletion = {
     // 只要当前光标前的字符为 '@' 就开始自动补全
     if(text.substr(-1,1) === '@') {
       return eventKeys.map(dep => {
-        return new vscode.CompletionItem(dep, vscode.CompletionItemKind.Field)
+        let item = new vscode.CompletionItem(dep, vscode.CompletionItemKind.Field)
+        item.insertText = new vscode.SnippetString(`${dep}="$0"`)
+        return item
       })
     }
   },
