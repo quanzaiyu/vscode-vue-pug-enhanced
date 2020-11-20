@@ -43,10 +43,10 @@
   "activationEvents": [
     "onLanguage:jade",
     "onLanguage:vue",
-    "onCommand:extension.formatPug",
-    "onCommand:extension.formatPugSelected",
-    "onCommand:extension.transformHtml2Pug",
-    "onCommand:extension.transformPug2Html"
+    "onCommand:vscode-vue-pug-enhanced.formatPug",
+    "onCommand:vscode-vue-pug-enhanced.formatPugSelected",
+    "onCommand:vscode-vue-pug-enhanced.transformHtml2Pug",
+    "onCommand:vscode-vue-pug-enhanced.transformPug2Html"
   ],
   "main": "./src/main.js",
   "extensionDependencies": [
@@ -55,22 +55,22 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.formatPug",
+        "command": "vscode-vue-pug-enhanced.formatPug",
         "title": "Format Pug",
         "category": "Vue Pug Enhanced"
       },
       {
-        "command": "extension.formatPugSelected",
+        "command": "vscode-vue-pug-enhanced.formatPugSelected",
         "title": "Format Pug Selected",
         "category": "Vue Pug Enhanced"
       },
       {
-        "command": "extension.transformHtml2Pug",
+        "command": "vscode-vue-pug-enhanced.transformHtml2Pug",
         "title": "Html to Pug",
         "category": "Vue Pug Enhanced"
       },
       {
-        "command": "extension.transformPug2Html",
+        "command": "vscode-vue-pug-enhanced.transformPug2Html",
         "title": "Pug to Html",
         "category": "Vue Pug Enhanced"
       }
@@ -85,27 +85,27 @@
 			"type": "object",
 			"title": "Pug",
 			"properties": {
-        "vue-pug-enhanced.omitDiv": {
+        "vscode-vue-pug-enhanced.omitDiv": {
           "type": "boolean",
           "default": false,
           "description": "Omit div tag when it has id or class."
         },
-        "vue-pug-enhanced.useTab": {
+        "vscode-vue-pug-enhanced.useTab": {
           "type": "boolean",
           "default": false,
           "description": "Indent with Tabs, if false, with spaces."
         },
-        "vue-pug-enhanced.tabSize": {
+        "vscode-vue-pug-enhanced.tabSize": {
           "type": "number",
           "default": 2,
           "description": "The number of spaces to indent generated files with. Default is 2 spaces. When `fillTab` is false, fill `tabSize` spaces."
         },
-        "vue-pug-enhanced.doubleQuotes": {
+        "vscode-vue-pug-enhanced.doubleQuotes": {
           "type": "boolean",
           "default": true,
           "description": "Use double quotes for attributes."
         },
-        "vue-pug-enhanced.omitCommas": {
+        "vscode-vue-pug-enhanced.omitCommas": {
           "type": "boolean",
           "default": true,
           "description": "Omit attribute separating commas."

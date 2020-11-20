@@ -10,7 +10,7 @@ const formatPug = async () => {
 
   let text = document.getText()
 
-  let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced')
+  let editorConfig = vscode.workspace.getConfiguration('vscode-vue-pug-enhanced')
   let options = {
     omit_div: editorConfig.omitDiv,
     fill_tab: editorConfig.useTab || !editor.options.insertSpaces,

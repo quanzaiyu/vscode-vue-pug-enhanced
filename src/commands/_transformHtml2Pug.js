@@ -11,7 +11,7 @@ const transformHtml2Pug = async () => {
     const htmlCode = editor.document.getText(selection);
     if (!htmlCode) return null
 
-    let editorConfig = vscode.workspace.getConfiguration('vue-pug-enhanced')
+    let editorConfig = vscode.workspace.getConfiguration('vscode-vue-pug-enhanced')
 
     return new Promise((resolve, reject) => {
       // @ts-ignore
