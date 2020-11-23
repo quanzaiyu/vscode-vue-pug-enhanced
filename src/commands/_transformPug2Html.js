@@ -1,11 +1,17 @@
-const vscode = require('vscode')
 const pug = require('pug')
+const { modifyTemplateToHtml, setText } = require('../utils')
+const { window } = require('vscode')
 
 const transformPug2Html = async () => {
-  const editor = vscode.window.activeTextEditor
+  const editor = window.activeTextEditor
   if (!editor) return
 
   const selections = editor.selections
+
+  if (selections.length > 1) {
+    window.showInformationMessage("Don't make more then one selection")
+    return
+  }
 
   let fragments = await Promise.all(selections.map(async (selection) => {
     const htmlCode = editor.document.getText(selection)
@@ -20,36 +26,22 @@ const transformPug2Html = async () => {
     })
   }))
 
-  // 替换template标签
+  if (!fragments[0]) {
+    return
+  }
+
+  if (!fragments[0] || !fragments[0].length) return
+
+  // 将html字符串模板中起始的换行符去掉
+  if (fragments[0].substr(0, 1) === '\n') { // \n 为一个字符，而不是两个
+    fragments[0] = fragments[0].substring(1, fragments[0].length)
+  }
+
+  // Pug => HTML
+  await setText(fragments[0])
+
   // </template><template lang="pug"> => <template>
-  const text = editor.document.getText()
-  const templateMatch = text.match(/\s*<template.*\s*/)
-
-  if (!templateMatch) return
-
-  const start = editor.document.positionAt(templateMatch.index)
-  const end = editor.document.positionAt(templateMatch.index + templateMatch[0].length)
-
-  let range = new vscode.Range(start, end)
-
-  const replaceStr = `<template>\r\n`
-
-  editor.edit(edit => {
-    // 执行替换template标签
-    edit.replace(range, replaceStr)
-
-    fragments.forEach((fragment, i) => {
-      if (!fragment || !fragment.length) return
-
-      // 将html字符串模板中起始的换行符去掉
-      if (fragment.substr(0, 1) === '\n') { // \n 为一个字符，而不是两个
-        fragment = fragment.substring(1, fragment.length)
-      }
-
-      // Pug => HTML
-      edit.replace(editor.selections[i], fragment)
-    })
-  })
+  await modifyTemplateToHtml()
 }
 
 module.exports = {

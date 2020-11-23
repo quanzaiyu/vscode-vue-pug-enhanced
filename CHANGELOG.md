@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.10
+
+- Selections optimize
+
 ## 1.1.6
 
 - Auto add `lang="pug"` to template tag when execute `Html to Pug` command
