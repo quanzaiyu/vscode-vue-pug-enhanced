@@ -1,5 +1,9 @@
 # Vue Pug Enhanced
 
+[![Version](https://img.shields.io/visual-studio-marketplace/v/quanzaiyu.vscode-vue-pug-enhanced?style=flat-square&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=quanzaiyu.vscode-vue-pug-enhanced)
+![Installs](https://img.shields.io/visual-studio-marketplace/i/quanzaiyu.vscode-vue-pug-enhanced?style=flat-square)
+![Downloads](https://img.shields.io/visual-studio-marketplace/d/quanzaiyu.vscode-vue-pug-enhanced?style=flat-square)
+![Rating](https://img.shields.io/visual-studio-marketplace/r/quanzaiyu.vscode-vue-pug-enhanced?style=flat-square)
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 <div align="center">
