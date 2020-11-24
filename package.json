@@ -3,7 +3,7 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
@@ -82,6 +82,26 @@
         "category": "Vue Pug Enhanced"
       }
     ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "vscode-vue-pug-enhanced.formatPug",
+          "when": "resourceExtname == .vue || resourceExtname == .pug || resourceExtname == .jade"
+        },
+        {
+          "command": "vscode-vue-pug-enhanced.formatPugSelected",
+          "when": "resourceExtname == .vue || resourceExtname == .pug || resourceExtname == .jade"
+        },
+        {
+          "command": "vscode-vue-pug-enhanced.transformHtml2Pug",
+          "when": "resourceExtname == .vue || resourceExtname == .html"
+        },
+        {
+          "command": "vscode-vue-pug-enhanced.transformPug2Html",
+          "when": "resourceExtname == .vue || resourceExtname == .html"
+        }
+      ]
+    },
     "snippets": [
       {
         "language": "jade",

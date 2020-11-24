@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.11
+
+- Add commandPalette's `when` conditions
+
 ## 1.1.10
 
 - Selections optimize
