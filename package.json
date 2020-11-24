@@ -8,6 +8,13 @@
   "engines": {
     "vscode": "^1.51.0"
   },
+  "contributors": [
+    {
+      "name": "quanzaiyu",
+      "url": "https://github.com/quanzaiyu",
+      "email": "731734107@qq.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/quanzaiyu/vscode-vue-pug-enhanced.git"
