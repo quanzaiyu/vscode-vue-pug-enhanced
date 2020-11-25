@@ -51,7 +51,6 @@
     "onLanguage:jade",
     "onLanguage:vue",
     "onCommand:vscode-vue-pug-enhanced.formatPug",
-    "onCommand:vscode-vue-pug-enhanced.formatPugSelected",
     "onCommand:vscode-vue-pug-enhanced.transformHtml2Pug",
     "onCommand:vscode-vue-pug-enhanced.transformPug2Html"
   ],
@@ -64,11 +63,6 @@
       {
         "command": "vscode-vue-pug-enhanced.formatPug",
         "title": "Format Pug",
-        "category": "Vue Pug Enhanced"
-      },
-      {
-        "command": "vscode-vue-pug-enhanced.formatPugSelected",
-        "title": "Format Pug Selected",
         "category": "Vue Pug Enhanced"
       },
       {
@@ -86,10 +80,6 @@
       "commandPalette": [
         {
           "command": "vscode-vue-pug-enhanced.formatPug",
-          "when": "resourceExtname == .vue || resourceExtname == .pug || resourceExtname == .jade"
-        },
-        {
-          "command": "vscode-vue-pug-enhanced.formatPugSelected",
           "when": "resourceExtname == .vue || resourceExtname == .pug || resourceExtname == .jade"
         },
         {

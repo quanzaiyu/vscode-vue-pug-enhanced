@@ -43,35 +43,19 @@
 - Vue Pug Enhanced: Html to Pug
 - Vue Pug Enhanced: Pug to Html
 
-### **Format Pug Document**
+### **Format Pug**
 
-1. Open a pug/jade file.
+1. Open a pug/jade/vue file.
 2. Press `Ctrl + Shift + P`
 3. Enter `Format Pug`
 
-![](./doc/images/008.gif)
+![](./doc/images/018.gif)
+
+![](./doc/images/019.gif)
 
 **commands**:
 
 - Vue Pug Enhanced: Format Pug
-
-> Note: this command only support pug/jade file.
-
-### **Format Pug Selection**
-
-1. Create a selection.
-2. Press `F1` or `Ctrl + Shift + P`.
-3. Run the command named `Format Pug Selected`.
-
-![](./doc/images/009.gif)
-
-- Vue Pug Enhanced: Format Pug Selected
-
-> Note: this command support every file.
-
-In vue file:
-
-![](./doc/images/010.gif)
 
 ### **Autocomplete**
 

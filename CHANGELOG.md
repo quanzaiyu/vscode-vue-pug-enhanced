@@ -1,6 +1,14 @@
 # Change Log
 
-## 1.1.11
+## 1.1.13
+
+- Merge `Format Pug Selected` command into `Format Pug`
+
+![](./doc/images/018.gif)
+
+![](./doc/images/019.gif)
+
+## 1.1.12
 
 - Use webpack to package source code
 

@@ -95,6 +95,51 @@ async function modifyTemplateToHtml() {
   })
 }
 
+
+function getTemplateText({templateLang, shouldSelectContent}) {
+  const editor = vscode.window.activeTextEditor
+  let document = editor.document
+
+  if (document.languageId.toLowerCase() === 'vue') {
+    // 获取文件内容
+    let text = document.getText()
+
+    // vue文件，选中模板中的内容
+    let regStart = new RegExp('<template\\b(?=[^>]*lang=([\"|\'](' + templateLang +')[\"|\']))(?![^/>]*/>\\s*$)')
+    if (templateLang) {
+      regStart = new RegExp('<template\\b(?=[^>]*lang=([\"|\'](' + templateLang +')[\"|\']))(?![^/>]*/>\\s*$)')
+    }
+    let regEnd = new RegExp('</template>')
+
+    let templateStartMatch = text.match(regStart)
+    let templateEndMatch = text.match(regEnd)
+
+    if (!templateStartMatch || !templateEndMatch) return
+
+    let startPosition = editor.document.positionAt(templateStartMatch.index)
+    let endPosition = editor.document.positionAt(templateEndMatch.index)
+
+    const lastTemplateLine = editor.document.lineAt(endPosition.line - 1);
+    let selection = new Selection(
+      new Position(startPosition.line + 1, 0),
+      new Position(endPosition.line - 1, lastTemplateLine.text.length - 1)
+    )
+
+    if (shouldSelectContent) {
+      editor.selection = selection
+    }
+
+    text = document.getText(selection)
+
+    return {
+      selection,
+      text
+    }
+  } else {
+    return
+  }
+}
+
 module.exports = {
   isInPugTemplate,
   setText,
