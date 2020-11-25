@@ -4,3 +4,5 @@ node_modules
 _refs/
 test/
 yarn-error.log
+out/
+dist/

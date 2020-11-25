@@ -2,6 +2,10 @@
 
 ## 1.1.11
 
+- Use webpack to package source code
+
+## 1.1.11
+
 - Add commandPalette's `when` conditions
 
 ## 1.1.10
