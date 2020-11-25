@@ -11,6 +11,10 @@ vsc-extension-quickstart.md
 **/*.map
 **/.eslintrc.json
 tsconfig.json
+jsconfig.json
 webpack.config.js
 push.js
 _refs/**
+*.log
+*.lock
+*.vsix
