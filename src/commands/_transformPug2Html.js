@@ -1,49 +1,47 @@
 const pug = require('pug')
-const { modifyTemplateToHtml, setText } = require('../utils')
+const { modifyTemplateToHtml, setText, getTemplateText, isLanguage } = require('../utils')
 const { window } = require('vscode')
 
-const transformPug2Html = async () => {
+export async function transformPug2Html() {
   const editor = window.activeTextEditor
   if (!editor) return
 
-  const selections = editor.selections
+  const document = editor.document
+  if (!document || !isLanguage(['pug', 'jade', 'vue', 'nvue'])) return
 
-  if (selections.length > 1) {
-    window.showInformationMessage("Don't make more then one selection")
-    return
-  }
+  // 获取文件内容
+  let text = document.getText()
 
-  let fragments = await Promise.all(selections.map(async (selection) => {
-    const htmlCode = editor.document.getText(selection)
-    return new Promise((resolve, reject) => {
-      if (!htmlCode || !htmlCode.length) return resolve(null)
-      try {
-        resolve(pug.render(htmlCode, {
-          pretty: true
-        }))
+  let selection = editor.selection
+
+  // 没有选区，则默认选中template中的内容
+  if (!selection.isEmpty) {
+    text = editor.document.getText(selection)
+  } else {
+    if (isLanguage(['vue', 'nvue'])) {
+      let res = getTemplateText({templateLang: "pug", shouldSelectContent: true})
+      if (res) {
+        text = res.text
       }
-      catch (error) { reject(error) }
-    })
-  }))
-
-  if (!fragments[0]) {
-    return
+    }
   }
 
-  if (!fragments[0] || !fragments[0].length) return
+  try {
+    let result = pug.render(text, { pretty: true }) || text
 
-  // 将html字符串模板中起始的换行符去掉
-  if (fragments[0].substr(0, 1) === '\n') { // \n 为一个字符，而不是两个
-    fragments[0] = fragments[0].substring(1, fragments[0].length)
+    // 将html字符串模板中起始的换行符去掉
+    if (result.substr(0, 1) === '\n') { // \n 为一个字符，而不是两个
+      result = result.substring(1, result.length)
+    }
+
+    // Pug => HTML
+    await setText(result)
+
+    if (isLanguage(['vue', 'nvue'])) {
+      // </template><template lang="pug"> => <template>
+      await modifyTemplateToHtml()
+    }
+  } catch (err) {
+    window.showErrorMessage(err)
   }
-
-  // Pug => HTML
-  await setText(fragments[0])
-
-  // </template><template lang="pug"> => <template>
-  await modifyTemplateToHtml()
-}
-
-module.exports = {
-  transformPug2Html
 }

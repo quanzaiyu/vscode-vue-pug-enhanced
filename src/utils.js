@@ -1,10 +1,10 @@
-const { Range, Position, Selection } = require('vscode')
+const { Range, Position, Selection, window } = require('vscode')
 const vscode = require('vscode')
 
 /**
 * 是否在pug模板之内
 */
-function isInPugTemplate (document, position) {
+export function isInPugTemplate (document, position) {
   const text = document.getText()
   let tagName = 'template'
   // <template lang="pug"> 的各种变种
@@ -20,10 +20,10 @@ function isInPugTemplate (document, position) {
 }
 
 /**
- * This function is used to set the current document text
+ * 设置文本内容
  * @param newText
  */
-async function setText(newText) {
+export async function setText(newText) {
   const editor = vscode.window.activeTextEditor
   const doc = editor.document
 
@@ -50,7 +50,7 @@ async function setText(newText) {
 
 // 替换template标签
 // <template> => </template><template lang="pug">
-async function modifyTemplateToPug() {
+export async function modifyTemplateToPug() {
   const editor = vscode.window.activeTextEditor
 
   let text = editor.document.getText()
@@ -73,7 +73,7 @@ async function modifyTemplateToPug() {
 
 // 替换template标签
 // </template><template lang="pug"> => <template>
-async function modifyTemplateToHtml() {
+export async function modifyTemplateToHtml() {
   const editor = vscode.window.activeTextEditor
 
   let text = editor.document.getText()
@@ -95,9 +95,9 @@ async function modifyTemplateToHtml() {
   })
 }
 
-
-function getTemplateText({templateLang, shouldSelectContent}) {
-  const editor = vscode.window.activeTextEditor
+// 获取template标签中的内容
+export function getTemplateText({templateLang = "", shouldSelectContent = false}) {
+  const editor = window.activeTextEditor
   let document = editor.document
 
   if (document.languageId.toLowerCase() === 'vue') {
@@ -105,7 +105,7 @@ function getTemplateText({templateLang, shouldSelectContent}) {
     let text = document.getText()
 
     // vue文件，选中模板中的内容
-    let regStart = new RegExp('<template\\b(?=[^>]*lang=([\"|\'](' + templateLang +')[\"|\']))(?![^/>]*/>\\s*$)')
+    let regStart = new RegExp('<template\\s*>\\s*')
     if (templateLang) {
       regStart = new RegExp('<template\\b(?=[^>]*lang=([\"|\'](' + templateLang +')[\"|\']))(?![^/>]*/>\\s*$)')
     }
@@ -114,15 +114,15 @@ function getTemplateText({templateLang, shouldSelectContent}) {
     let templateStartMatch = text.match(regStart)
     let templateEndMatch = text.match(regEnd)
 
-    if (!templateStartMatch || !templateEndMatch) return
+    if (!templateStartMatch || !templateEndMatch) return null
 
-    let startPosition = editor.document.positionAt(templateStartMatch.index)
-    let endPosition = editor.document.positionAt(templateEndMatch.index)
+    let startPosition = document.positionAt(templateStartMatch.index)
+    let endPosition = document.positionAt(templateEndMatch.index)
 
-    const lastTemplateLine = editor.document.lineAt(endPosition.line - 1);
+    const lastTemplateLine = document.lineAt(endPosition.line - 1);
     let selection = new Selection(
       new Position(startPosition.line + 1, 0),
-      new Position(endPosition.line - 1, lastTemplateLine.text.length - 1)
+      new Position(endPosition.line - 1, lastTemplateLine.text.length)
     )
 
     if (shouldSelectContent) {
@@ -136,13 +136,11 @@ function getTemplateText({templateLang, shouldSelectContent}) {
       text
     }
   } else {
-    return
+    return null
   }
 }
 
-module.exports = {
-  isInPugTemplate,
-  setText,
-  modifyTemplateToPug,
-  modifyTemplateToHtml
+// 判断当前激活的文档类型
+export function isLanguage(language) {
+  return language.includes(window.activeTextEditor.document.languageId.toLowerCase())
 }

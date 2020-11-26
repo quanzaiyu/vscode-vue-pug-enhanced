@@ -3,6 +3,12 @@
 ## 1.1.13
 
 - Merge `Format Pug Selected` command into `Format Pug`
+- Add context right menus
+- Auto make selection when execute command in vue file
+
+![](./doc/images/020.png)
+
+![](./doc/images/021.gif)
 
 ![](./doc/images/018.gif)
 

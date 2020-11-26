@@ -3,7 +3,7 @@
   "displayName": "Vue Pug Enhanced",
   "description": "Pug syntax for Vue files and enhanced Pug features",
   "publisher": "quanzaiyu",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.51.0"
@@ -80,15 +80,29 @@
       "commandPalette": [
         {
           "command": "vscode-vue-pug-enhanced.formatPug",
-          "when": "resourceExtname == .vue || resourceExtname == .pug || resourceExtname == .jade"
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .pug || resourceExtname == .jade"
         },
         {
           "command": "vscode-vue-pug-enhanced.transformHtml2Pug",
-          "when": "resourceExtname == .vue || resourceExtname == .html"
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .html"
         },
         {
           "command": "vscode-vue-pug-enhanced.transformPug2Html",
-          "when": "resourceExtname == .vue || resourceExtname == .html"
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .html"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "vscode-vue-pug-enhanced.formatPug",
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .pug || resourceExtname == .jade"
+        },
+        {
+          "command": "vscode-vue-pug-enhanced.transformHtml2Pug",
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .html"
+        },
+        {
+          "command": "vscode-vue-pug-enhanced.transformPug2Html",
+          "when": "resourceExtname == .vue || resourceExtname == .nvue || resourceExtname == .pug || resourceExtname == .jade"
         }
       ]
     },
