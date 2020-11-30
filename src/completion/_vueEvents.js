@@ -1,4 +1,4 @@
-const vscode = require('vscode')
+const { CompletionItem, SnippetString, CompletionItemKind, Position, Range } = require('vscode')
 const { isInPugTemplate } = require('../utils')
 
 const eventKeys = [
@@ -65,24 +65,22 @@ const eventKeys = [
 
 const vueEventsCompletion = {
   provideCompletionItems: (document, position, token, context) => {
-    if (!isInPugTemplate(document, position)) return
+    if (!isInPugTemplate(position)) return
 
-    const start = new vscode.Position(position.line, 0)
-    const range = new vscode.Range(start, position)
+    const start = new Position(position.line, 0)
+    const range = new Range(start, position)
     const text = document.getText(range)
 
     // 只要当前光标前的字符为 '@' 就开始自动补全
-    if(text.substr(-1,1) === '@') {
+    if(text.substr(-1, 1) === '@') {
       return eventKeys.map(dep => {
-        let item = new vscode.CompletionItem(dep, vscode.CompletionItemKind.Field)
-        item.insertText = new vscode.SnippetString(`${dep}="$0"`)
+        let item = new CompletionItem(dep, CompletionItemKind.Field)
+        item.insertText = new SnippetString(`${dep}="$0"`)
         return item
       })
     }
   },
   resolveCompletionItem: (item, token) => {
-    // item.label += "=\"\""
-    console.log(item)
     return item
   }
 }

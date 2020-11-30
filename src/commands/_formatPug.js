@@ -2,7 +2,7 @@ const pugBeautify = require('pug-beautify')
 const { setText, getTemplateText, isLanguage } = require('../utils')
 const { window, workspace } = require('vscode')
 
-const formatPug = async () => {
+export const formatPug = async () => {
   const editor = window.activeTextEditor
   if (!editor) return
 
@@ -37,8 +37,4 @@ const formatPug = async () => {
   } catch (err) {
     window.showErrorMessage(err)
   }
-}
-
-module.exports = {
-  formatPug
 }

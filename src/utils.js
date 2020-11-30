@@ -1,11 +1,13 @@
 const { Range, Position, Selection, window } = require('vscode')
-const vscode = require('vscode')
 
 /**
 * 是否在pug模板之内
 */
-export function isInPugTemplate (document, position) {
-  const text = document.getText()
+export function isInPugTemplate (position) {
+  const editor = window.activeTextEditor
+  const document = editor.document
+  let text = document.getText()
+
   let tagName = 'template'
   // <template lang="pug"> 的各种变种
   let reg = new RegExp(`(<)(${tagName})` + '\\b(?=[^>]*lang=([\"|\'](pug|jade)[\"|\']))(?![^/>]*/>\\s*$)')
@@ -24,26 +26,22 @@ export function isInPugTemplate (document, position) {
  * @param newText
  */
 export async function setText(newText) {
-  const editor = vscode.window.activeTextEditor
-  const doc = editor.document
+  const editor = window.activeTextEditor
+  const document = editor.document
 
   await editor.edit(builder => {
     let start, end
 
-    // Format whole file or selected text
     if (editor.selection.isEmpty) {
-      const lastLine = doc.lineAt(doc.lineCount - 1);
+      const lastLine = document.lineAt(document.lineCount - 1);
       start = new Position(0, 0);
-      end = new Position(doc.lineCount - 1, lastLine.text.length);
+      end = new Position(document.lineCount - 1, lastLine.text.length);
     } else {
       start = editor.selection.start;
       end = editor.selection.end;
     }
 
-    // replace text
     builder.replace(new Range(start, end), newText);
-
-    // Select the whole json
     editor.selection = new Selection(start, end);
   });
 };
@@ -51,17 +49,18 @@ export async function setText(newText) {
 // 替换template标签
 // <template> => </template><template lang="pug">
 export async function modifyTemplateToPug() {
-  const editor = vscode.window.activeTextEditor
+  const editor = window.activeTextEditor
+  const document = editor.document
+  let text = document.getText()
 
-  let text = editor.document.getText()
   let templateMatch = text.match(/\s*<template.*\s*/)
 
   if (!templateMatch) return
 
-  let start = editor.document.positionAt(templateMatch.index)
-  let end = editor.document.positionAt(templateMatch.index + templateMatch[0].length)
+  let start = document.positionAt(templateMatch.index)
+  let end = document.positionAt(templateMatch.index + templateMatch[0].length)
 
-  let range = new vscode.Range(start, end)
+  let range = new Range(start, end)
 
   let replaceStr = `<template lang="pug">\r\n`
 
@@ -74,16 +73,16 @@ export async function modifyTemplateToPug() {
 // 替换template标签
 // </template><template lang="pug"> => <template>
 export async function modifyTemplateToHtml() {
-  const editor = vscode.window.activeTextEditor
-
+  const editor = window.activeTextEditor
+  const document = editor.document
   let text = editor.document.getText()
 
   let templateMatch = text.match(/\s*<template.*\s*/)
 
   if (!templateMatch) return
 
-  let start = editor.document.positionAt(templateMatch.index)
-  let end = editor.document.positionAt(templateMatch.index + templateMatch[0].length)
+  let start = document.positionAt(templateMatch.index)
+  let end = document.positionAt(templateMatch.index + templateMatch[0].length)
 
   let range = new Range(start, end)
 
@@ -98,7 +97,7 @@ export async function modifyTemplateToHtml() {
 // 获取template标签中的内容
 export function getTemplateText({templateLang = "", shouldSelectContent = false}) {
   const editor = window.activeTextEditor
-  let document = editor.document
+  const document = editor.document
 
   if (document.languageId.toLowerCase() === 'vue') {
     // 获取文件内容
@@ -122,7 +121,7 @@ export function getTemplateText({templateLang = "", shouldSelectContent = false}
     const lastTemplateLine = document.lineAt(endPosition.line - 1);
     let selection = new Selection(
       new Position(startPosition.line + 1, 0),
-      new Position(endPosition.line - 1, lastTemplateLine.text.length)
+      new Position(lastTemplateLine.lineNumber, lastTemplateLine.text.length)
     )
 
     if (shouldSelectContent) {
@@ -131,10 +130,7 @@ export function getTemplateText({templateLang = "", shouldSelectContent = false}
 
     text = document.getText(selection)
 
-    return {
-      selection,
-      text
-    }
+    return { selection, text }
   } else {
     return null
   }
