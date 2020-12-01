@@ -1,0 +1,340 @@
+{
+  // Elements
+  "input": {
+    "prefix": "input",
+    "body": [
+      "input(v-model=\"${0:data}\")"
+    ],
+    "description": "v-model directive input"
+  },
+  "img": {
+    "prefix": "img",
+    "body": [
+      "img(:src=\"'${1:filePath}'\" alt=\"${0:altText}\")"
+    ],
+    "description": "Vue image source binding"
+  },
+  "a": {
+    "prefix": "a",
+    "body": "a(:href=\"'${1:#}'\" title=\"${2:title}\")",
+    "description": "a(href=\"#\" title=\"title\")"
+  },
+  "div": {
+    "prefix": "div",
+    "body": "div($0)",
+    "description": "div()"
+  },
+  "span": {
+    "prefix": "span",
+    "body": "span($0)",
+    "description": "span()"
+  },
+  "component": {
+    "prefix": "component",
+    "body": [
+      "component(:is=\"${1:componentId}\") $0"
+    ],
+    "description": "component element"
+  },
+  "keep-alive": {
+    "prefix": "keep-alive",
+    "body": [
+        "keep-alive"
+    ],
+    "description": "keep-alive element"
+  },
+
+  // Transition
+  "transition": {
+    "prefix": "transition",
+    "body": [
+      "transition(name='${1:fade}' mode='${2:out-in}')"
+    ],
+    "description": "transition element"
+  },
+  "transition-group": {
+    "prefix": "transition-group",
+    "body": [
+        "transition-group"
+    ],
+    "description": "transition-group element"
+  },
+  "enter-class": {
+    "prefix": "enter-class",
+    "body": [
+        "enter-class=\"$1\"$0"
+    ],
+    "description": "enter-class=''. Expects: string."
+  },
+  "leave-class": {
+    "prefix": "leave-class",
+    "body": [
+        "leave-class=\"$1\"$0"
+    ],
+    "description": "leave-class=''. Expects: string."
+  },
+  "appear-class": {
+    "prefix": "appear-class",
+    "body": [
+        "appear-class=\"$1\"$0"
+    ],
+    "description": "appear-class=''. Expects: string."
+  },
+  "enter-to-class": {
+    "prefix": "enter-to-class",
+    "body": [
+        "enter-to-class=\"$1\"$0"
+    ],
+    "description": "enter-to-class=''. Expects: string."
+  },
+  "leave-to-class": {
+    "prefix": "leave-to-class",
+    "body": [
+        "leave-to-class=\"$1\"$0"
+    ],
+    "description": "leave-to-class=''. Expects: string."
+  },
+  "appear-to-class": {
+    "prefix": "appear-to-class",
+    "body": [
+        "appear-to-class=\"$1\"$0"
+    ],
+    "description": "appear-to-class=''. Expects: string."
+  },
+  "enter-active-class": {
+    "prefix": "enter-active-class",
+    "body": [
+      "enter-active-class=\"$1\"$0"
+    ],
+    "description": "enter-active-class=''. Expects: string."
+  },
+  "leave-active-class": {
+    "prefix": "leave-active-class",
+    "body": [
+      "leave-active-class=\"$1\"$0"
+    ],
+    "description": "leave-active-class=''. Expects: string."
+  },
+  "appear-active-class": {
+    "prefix": "appear-active-class",
+    "body": [
+      "appear-active-class=\"$1\"$0"
+    ],
+    "description": "appear-active-class=''. Expects: string."
+  },
+
+  // Vue Attributes
+  "v-show": {
+    "prefix": "v-show",
+    "body": [
+      "v-show=\"${1:condition}\""
+    ],
+    "description": "v-show inline statement"
+  },
+  "v-if": {
+    "prefix": "v-if",
+    "body": [
+      "v-if=\"${1:condition}\""
+    ],
+    "description": "v-if inline statement"
+  },
+  "v-else-if": {
+    "prefix": "v-else-if",
+    "body": [
+      "v-else-if=\"${1:condition}\""
+    ],
+    "description": "v-else-if inline statement"
+  },
+  "v-else": {
+    "prefix": "v-else",
+    "body": [
+      "v-else=\"${1:condition}\""
+    ],
+    "description": "v-else inline statement"
+  },
+  "v-for": {
+    "prefix": "v-for",
+    "body": [
+      "v-for=\"(${1:item}, index, key) in ${2:items}\" :key=\"${0:key}\""
+    ],
+    "description": "v-for inline with index and key"
+  },
+  "v-on": {
+    "prefix": "v-on",
+    "body": [
+      "v-on:${1:event}=\"${2:handle}\""
+    ],
+    "description": "v-on"
+  },
+  "v-bind": {
+    "prefix": "v-bind",
+    "body": [
+      "v-bind$1=\"${2}\""
+    ],
+    "description": "v-bind"
+  },
+  "v-model": {
+    "prefix": "v-model",
+    "body": [
+      "v-model=\"${0:data}\""
+    ],
+    "description": "v-model inline statement"
+  },
+  "v-text": {
+    "prefix": "v-text",
+    "body": [
+      "v-text=\"${1:msg}\""
+    ],
+    "description": "v-text"
+  },
+  "v-html": {
+    "prefix": "v-html",
+    "body": [
+      "v-html=\"${1:html}\""
+    ],
+    "description": "v-html"
+  },
+  "v-pre": {
+    "prefix": "v-pre",
+    "body": [
+      "v-pre=\"${1:pre}\""
+    ],
+    "description": "v-pre"
+  },
+  "v-cloak": {
+    "prefix": "v-cloak",
+    "body": [
+      "v-cloak"
+    ],
+    "description": "v-cloak"
+  },
+  "v-once": {
+    "prefix": "v-once",
+    "body": [
+      "v-once"
+    ],
+    "description": "v-once"
+  },
+  ":key": {
+    "prefix": ":key",
+    "body": [
+      ":key=\"${1:key}\""
+    ],
+    "description": "Expects: string. Children of the same common parent must have unique keys. Duplicate keys will cause render errors."
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": [
+      "ref=\"${1:reference}\""
+    ],
+    "description": "Expects: string. ref is used to register a reference to an element or a child component. The reference will be registered under the parent component’s $refs object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance."
+  },
+  "slot": {
+    "prefix": "slot",
+    "body": [
+      "slot=\"$1\""
+    ],
+    "description": "slot=''. Expects: string. Used on content inserted into child components to indicate which named slot the content belongs to."
+  },
+  "slot:scope": {
+    "prefix": "slot:scope",
+    "body": [
+      "slot-scope=\"$1\""
+    ],
+    "description": "Used to denote an element or component as a scoped slot. The attribute’s value should be a valid JavaScript expression that can appear in the argument position of a function signature. This means in supported environments you can also use ES2015 destructuring in the expression. Serves as a replacement for scope in 2.5.0+."
+  },
+  "scope": {
+    "prefix": "scope",
+    "body": [
+        "scope=\"${1:scope}\"$0"
+    ],
+    "description": "Used to denote a <template> element as a scoped slot, which is replaced by `slot-scope` in 2.5.0+."
+  },
+  "tag": {
+    "prefix": "tag",
+    "body": [
+      "tag=\"$1\"$0"
+    ],
+    "description": "tag"
+  },
+
+  // Vue Router
+  "router-link": {
+    "prefix": "router-link",
+    "body": [
+      "router-link(to=\"/${1:page}\") ${2:RouterName}"
+    ],
+    "description": "Vue router link"
+  },
+  "router-view": {
+      "prefix": "router-view",
+      "body": [
+          "router-view $0"
+      ],
+      "description": "router-view element"
+  },
+  "to": {
+    "prefix": "to",
+    "body": [
+      "to=\"$1\"$0"
+    ],
+    "description": "to=''"
+  },
+
+  // Vuex
+
+  // Prop Attributes
+  ":src": {
+    "prefix": ":src",
+    "body": [
+      ":src=\"'${1:filePath}'\" alt=\"${0:altText}\""
+    ],
+    "description": "inline source binding"
+  },
+  ":style": {
+    "prefix": ":style",
+    "body": [
+      ":style=\"{ ${0} }\")"
+    ],
+    "description": "Vue style binding"
+  },
+  ":class": {
+    "prefix": ":class",
+    "body": [
+      ":class=\"{ ${0} }\""
+    ],
+    "description": "Vue class binding"
+  },
+
+  // Element Attributes
+  "class": {
+    "prefix": "class",
+    "body": "class=\"$1\"$0",
+    "description": "Set class attribute"
+  },
+  "id": {
+    "prefix": "id",
+    "body": "id=\"$1\"$0",
+    "description": "Set id attribute"
+  },
+  "type": {
+    "prefix": "type",
+    "body": "type=\"$1\"$0",
+    "description": "Set type attribute for form elements"
+  },
+  "name": {
+    "prefix": "name",
+    "body": "name=\"$1\"$0",
+    "description": "Set name attribute for form elements"
+  },
+  "placeholder": {
+    "prefix": "placeholder",
+    "body": "placeholder=\"$1\"$0",
+    "description": "Set placeholder attribute for form elements"
+  },
+  "value": {
+    "prefix": "value",
+    "body": "value=\"$1\"$0",
+    "description": "Set value attribute for form elements"
+  }
+}

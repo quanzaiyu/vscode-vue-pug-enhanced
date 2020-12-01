@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.16
+
+- Add transition apis
+- Add vue-router snippets
+
 ## 1.1.13
 
 - Merge `Format Pug Selected` command into `Format Pug`

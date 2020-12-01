@@ -61,6 +61,19 @@ const eventKeys = [
   "timeupdate",
   "volumechange",
   "waiting",
+  // Transition Apis
+  "before-enter",
+  "before-leave",
+  "before-appear",
+  "enter",
+  "leave",
+  "appear",
+  "after-enter",
+  "after-leave",
+  "after-appear",
+  "enter-cancelled",
+  "leave-cancelled",
+  "appear-cancelled",
 ]
 
 const vueEventsCompletion = {
@@ -75,7 +88,7 @@ const vueEventsCompletion = {
     if(text.substr(-1, 1) === '@') {
       return eventKeys.map(dep => {
         let item = new CompletionItem(dep, CompletionItemKind.Field)
-        item.insertText = new SnippetString(`${dep}="$0"`)
+        item.insertText = new SnippetString(`${dep}="$1"$0`)
         return item
       })
     }
